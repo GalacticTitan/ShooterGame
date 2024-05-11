@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cytqocmc0vib0"]
+
+[ext_resource type="Script" path="res://Scenes/levels/level.gd" id="1_ftc3x"]
+[ext_resource type="PackedScene" uid="uid://bgauxguov8oy1" path="res://Scenes/player/player.tscn" id="2_342v1"]
+[ext_resource type="PackedScene" uid="uid://btvkwrkomgxai" path="res://Scenes/objects/gate.tscn" id="3_teq8k"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_ftc3x")
+
+[node name="Player" parent="." instance=ExtResource("2_342v1")]
+position = Vector2(704, 558)
+
+[node name="Gate" parent="." instance=ExtResource("3_teq8k")]
+position = Vector2(58, -424)
+
+[connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
