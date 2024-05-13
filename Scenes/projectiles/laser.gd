@@ -12,7 +12,6 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	print(body)
 	if "hit" in body:
 		body.hit()
 	if body != null and body != $"../../Player":

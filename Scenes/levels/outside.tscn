@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cfein65hxy1xh"]
+[gd_scene load_steps=20 format=3 uid="uid://cfein65hxy1xh"]
 
 [ext_resource type="PackedScene" uid="uid://cytqocmc0vib0" path="res://Scenes/levels/level.tscn" id="1_c13qk"]
 [ext_resource type="Script" path="res://Scenes/levels/outside.gd" id="2_36wh5"]
@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://y5a2hfebasvf" path="res://graphics/decals/moss/moss_5.png" id="9_hg5bm"]
 [ext_resource type="Texture2D" uid="uid://dc5hqd22mm4t5" path="res://graphics/decals/moss/moss_3.png" id="10_lb2nv"]
 [ext_resource type="PackedScene" uid="uid://c57yu6gpumlec" path="res://Scenes/objects/steam_vent.tscn" id="11_cm3wx"]
+[ext_resource type="PackedScene" uid="uid://bw12uvt5nl5td" path="res://Scenes/items/item.tscn" id="14_0vq8u"]
+[ext_resource type="PackedScene" uid="uid://c6dj8gtxrem1e" path="res://Scenes/container/crate.tscn" id="15_2n74v"]
+[ext_resource type="PackedScene" uid="uid://7m4k2aw4wvh7" path="res://Scenes/container/toilet.tscn" id="16_o8yah"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cwlh1"]
 resource_name = "walls"
@@ -111,7 +114,23 @@ position = Vector2(-182, 638)
 [node name="Gate" parent="." index="1" instance=ExtResource("2_wpkih")]
 position = Vector2(252.482, -379)
 
-[node name="Player" parent="." index="3"]
+[node name="Item" parent="." index="2" instance=ExtResource("14_0vq8u")]
+position = Vector2(1556.64, 701)
+scale = Vector2(0.995789, 1.00793)
+
+[node name="Toilet" parent="." index="3" instance=ExtResource("16_o8yah")]
+position = Vector2(0.978619, 15.8265)
+rotation = 1.39626
+scale = Vector2(1, 1)
+collision_layer = 1
+collision_mask = 1
+
+[node name="Crate" parent="." index="4" instance=ExtResource("15_2n74v")]
+position = Vector2(731.603, 1021)
+collision_layer = 1
+collision_mask = 1
+
+[node name="Player" parent="." index="7"]
 position = Vector2(750.49, 585)
 metadata/_edit_group_ = true
 

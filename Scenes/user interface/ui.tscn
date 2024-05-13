@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://oue1aqadqb2v"]
+
+[ext_resource type="Texture2D" uid="uid://lm7crmkn14mq" path="res://graphics/ui/bullet.png" id="1_nhf2l"]
+[ext_resource type="Script" path="res://Scenes/user interface/ui.gd" id="1_xnbvr"]
+[ext_resource type="Texture2D" uid="uid://bwyl2qbrejmii" path="res://graphics/ui/grenade.png" id="2_k7t78"]
+[ext_resource type="Theme" uid="uid://iw54w6ddxoy1" path="res://Scenes/user interface/user_interface_theme.tres" id="3_n7per"]
+[ext_resource type="Texture2D" uid="uid://bqwunhug0jatv" path="res://graphics/ui/progress_bar/bg.png" id="4_2a5pb"]
+[ext_resource type="Texture2D" uid="uid://6siew0njnhn0" path="res://graphics/ui/progress_bar/progress.png" id="5_x6roa"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_xnbvr")
+
+[node name="WeaponContainer" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.01
+anchor_top = 0.88
+anchor_right = 0.01
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="GridContainer" type="GridContainer" parent="WeaponContainer"]
+layout_mode = 0
+offset_right = 51.0
+offset_bottom = 50.0
+columns = 2
+
+[node name="LaserIcon" type="TextureRect" parent="WeaponContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_nhf2l")
+expand_mode = 4
+
+[node name="GrenadeIcon" type="TextureRect" parent="WeaponContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_k7t78")
+expand_mode = 1
+
+[node name="LaserLabel" type="Label" parent="WeaponContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_n7per")
+text = "20"
+
+[node name="GrenadeLabel" type="Label" parent="WeaponContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_n7per")
+text = "10"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -40.0
+offset_right = 150.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 10
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+value = 41.0
+texture_under = ExtResource("4_2a5pb")
+texture_progress = ExtResource("5_x6roa")
