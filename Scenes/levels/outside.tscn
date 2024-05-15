@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cfein65hxy1xh"]
+[gd_scene load_steps=19 format=3 uid="uid://cfein65hxy1xh"]
 
 [ext_resource type="PackedScene" uid="uid://cytqocmc0vib0" path="res://Scenes/levels/level.tscn" id="1_c13qk"]
 [ext_resource type="Script" path="res://Scenes/levels/outside.gd" id="2_36wh5"]
@@ -13,9 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://y5a2hfebasvf" path="res://graphics/decals/moss/moss_5.png" id="9_hg5bm"]
 [ext_resource type="Texture2D" uid="uid://dc5hqd22mm4t5" path="res://graphics/decals/moss/moss_3.png" id="10_lb2nv"]
 [ext_resource type="PackedScene" uid="uid://c57yu6gpumlec" path="res://Scenes/objects/steam_vent.tscn" id="11_cm3wx"]
-[ext_resource type="PackedScene" uid="uid://bw12uvt5nl5td" path="res://Scenes/items/item.tscn" id="14_0vq8u"]
-[ext_resource type="PackedScene" uid="uid://c6dj8gtxrem1e" path="res://Scenes/container/crate.tscn" id="15_2n74v"]
-[ext_resource type="PackedScene" uid="uid://7m4k2aw4wvh7" path="res://Scenes/container/toilet.tscn" id="16_o8yah"]
+[ext_resource type="PackedScene" uid="uid://d0cs3086r4hpy" path="res://Scenes/house/house.tscn" id="14_64cec"]
+[ext_resource type="PackedScene" uid="uid://dw0a548x80dw5" path="res://Scenes/enemies/scout.tscn" id="15_7skg2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cwlh1"]
 resource_name = "walls"
@@ -54,6 +53,14 @@ sources/1 = SubResource("TileSetAtlasSource_jkina")
 [node name="Outside" instance=ExtResource("1_c13qk")]
 scale = Vector2(1.00601, 1)
 script = ExtResource("2_36wh5")
+
+[node name="Gate" parent="." index="1" instance=ExtResource("2_wpkih")]
+z_index = 1
+position = Vector2(252.482, -379)
+
+[node name="House" parent="." index="2" instance=ExtResource("14_64cec")]
+position = Vector2(-1866.78, 4594)
+rotation = -2.12623
 
 [node name="soil" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
@@ -105,28 +112,19 @@ position = Vector2(1623, 1197)
 texture = ExtResource("8_mha7b")
 
 [node name="Moss8" type="Sprite2D" parent="Ground" index="10"]
-position = Vector2(-1434, 400)
+position = Vector2(-1436.98, 400)
 texture = ExtResource("8_mha7b")
 
 [node name="SteamVent" parent="Ground" index="11" instance=ExtResource("11_cm3wx")]
 position = Vector2(-182, 638)
 
-[node name="Gate" parent="." index="1" instance=ExtResource("2_wpkih")]
-position = Vector2(252.482, -379)
+[node name="Scout" parent="Enemies" index="0" instance=ExtResource("15_7skg2")]
+position = Vector2(701.782, 853)
 
-[node name="Item" parent="." index="2" instance=ExtResource("14_0vq8u")]
-position = Vector2(1556.64, 701)
-scale = Vector2(0.995789, 1.00793)
-
-[node name="Toilet" parent="." index="3" instance=ExtResource("16_o8yah")]
-position = Vector2(1094.42, 632)
-rotation = 1.39626
-
-[node name="Crate" parent="." index="4" instance=ExtResource("15_2n74v")]
-position = Vector2(731.603, 1021)
-
-[node name="Player" parent="." index="7"]
+[node name="Player" parent="." index="8"]
 position = Vector2(750.49, 585)
 metadata/_edit_group_ = true
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
+[connection signal="player_entered" from="House" to="." method="_on_house_player_entered"]
+[connection signal="player_exit" from="House" to="." method="_on_house_player_exit"]

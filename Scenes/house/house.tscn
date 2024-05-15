@@ -10,8 +10,8 @@
 size = Vector2(6347.5, 4436)
 
 [node name="House" type="Area2D"]
-collision_layer = 3
-collision_mask = 16
+collision_layer = 16
+collision_mask = 11
 script = ExtResource("1_mug18")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
