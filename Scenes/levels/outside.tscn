@@ -119,16 +119,11 @@ position = Vector2(1556.64, 701)
 scale = Vector2(0.995789, 1.00793)
 
 [node name="Toilet" parent="." index="3" instance=ExtResource("16_o8yah")]
-position = Vector2(0.978619, 15.8265)
+position = Vector2(1094.42, 632)
 rotation = 1.39626
-scale = Vector2(1, 1)
-collision_layer = 1
-collision_mask = 1
 
 [node name="Crate" parent="." index="4" instance=ExtResource("15_2n74v")]
 position = Vector2(731.603, 1021)
-collision_layer = 1
-collision_mask = 1
 
 [node name="Player" parent="." index="7"]
 position = Vector2(750.49, 585)

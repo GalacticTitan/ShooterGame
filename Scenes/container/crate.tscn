@@ -6,10 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://obq3k0shpb42" path="res://graphics/objects/box/lid.png" id="3_n7xsb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gry6p"]
-size = Vector2(397, 170)
+size = Vector2(401, 179)
 
 [node name="Crate" instance=ExtResource("1_w5spp")]
-collision_mask = 8
 script = ExtResource("2_gaxg1")
 
 [node name="BaseSprite" parent="." index="0"]
@@ -20,7 +19,7 @@ position = Vector2(1, 9)
 texture = ExtResource("3_n7xsb")
 
 [node name="CollisionShape2D" parent="." index="2"]
-position = Vector2(-0.5, 0)
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_gry6p")
 
 [node name="Marker2D" type="Marker2D" parent="SpawnPositions" index="0"]

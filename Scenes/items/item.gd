@@ -19,11 +19,13 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	match type:
-		'laser':
-			Globals.laser_amount += 5
-		'grenade':
-			Globals.grenade_amount += 1
-		'health':
-			Globals.health += 10
-	queue_free()
+	if body.get_name() == 'Player':
+		match type:
+			'laser':
+				Globals.laser_amount += 5
+			'grenade':
+				Globals.grenade_amount += 1
+			'health':
+				Globals.health += 10
+		queue_free()
+	pass
